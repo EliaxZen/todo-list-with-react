@@ -6,13 +6,13 @@ import { useState } from "react";
 const Page = () => {
   const [itemInput, setItemInput] = useState('')
   const [list, setList] = useState<TodoItem[]>([
-    {id: 1, label: 'Fazer dever de casa', checked: true },
-    {id: 2, label: 'Comprar o bolo', checked: false },
+    { id: 1, label: 'Fazer dever de casa', checked: false },
+    { id: 2, label: 'Comprar bolo', checked: false },
   ])
 
   const handleAddButton = () => {
     if (itemInput.trim() === '') return;
-    setList([...list, {id: list.length + 1, label: itemInput, checked: false }])
+    setList([...list, { id: list.length + 1, label: itemInput, checked: false }])
     setItemInput('')
   }
 
@@ -22,10 +22,10 @@ const Page = () => {
     )
   }
 
-  const toggleItem = (id: number) =>  {
+  const toggleItem = (id: number) => {
     let newList = [...list]
-    for(let i in newList) {
-      if(newList[i].id === id) {
+    for (let i in newList) {
+      if (newList[i].id === id) {
         newList[i].checked = !newList[i].checked;
       }
     }
@@ -34,13 +34,13 @@ const Page = () => {
 
   return (
     <div className="w-screen h-screen flex flex-col items-center overflow-x-hidden">
-      <h1 className="text-xl mt-5">Lista de Tarefas</h1>
+      <h1 className="text-3xl mt-5">Lista de Tarefas</h1>
 
-      <div className="flex justify-between w-11/12 items-center max-w-lg my-3 p-4 rounded-md bg-blue-500 max-[320px]:flex-col">
+      <div className="flex justify-between w-11/12 items-center max-w-md my-3 p-4 rounded-md bg-blue-500 max-[320px]:flex-col">
         <input
           type="text"
           placeholder="O que deseja fazer?"
-          className="w-full border-black p-3 text-2xl text-black rounded-md mr-3 outline outline-2 outline-offset-0 outline-green-600"
+          className="w-full  border-black p-3 text-2xl text-black rounded-md mr-3 outline outline-2 outline-offset-0 outline-green-600"
           value={itemInput}
           onChange={e => setItemInput(e.target.value)}
         />
@@ -49,11 +49,13 @@ const Page = () => {
 
       <p>{list.length} itens na lista</p>
 
-      <ul className="w-full max-w-lg p-3 list-disc pl-5">
+      <ul className="flex flex-col w-full max-w-lg p-3 list-disc pl-5">
         {list.map(item => (
-          <li key={item.id} className="p-3 ml-3">
-            <input onClick={() => toggleItem(item.id)} type="checkbox" checked={item.checked}  className="w-6 h-6 mr-3"/>
-            {item.label} - <button onClick={() => deleteItem(item.id)} className="hover:underline">[deletar]</button></li>
+          <li key={item.id} className="p-3 flex items-center justify-between bg-blue-500 mb-2 rounded-lg">
+            <div className="flex items-center justify-between">
+              <input onClick={() => toggleItem(item.id)} type="checkbox" checked={item.checked} className="w-6 h-6 mr-3" />
+              {item.label}
+            </div> <button onClick={() => deleteItem(item.id)} className="bg-red-600 rounded-md p-2">deletar</button></li>
         ))}
       </ul>
     </div>
