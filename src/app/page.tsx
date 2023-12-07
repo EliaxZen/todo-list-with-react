@@ -36,11 +36,11 @@ const Page = () => {
     <div className="w-screen h-screen flex flex-col items-center overflow-x-hidden">
       <h1 className="text-3xl mt-5">Lista de Tarefas</h1>
 
-      <div className="flex justify-between w-11/12 items-center max-w-md my-3 p-4 rounded-md bg-blue-500 max-[320px]:flex-col">
+      <div className="flex justify-between w-full items-center my-3 p-2 rounded-md bg-blue-500 max-[620px]:flex-col">
         <input
           type="text"
           placeholder="O que deseja fazer?"
-          className="w-full  border-black p-3 text-2xl text-black rounded-md mr-3 outline outline-2 outline-offset-0 outline-green-600"
+          className="w-full border-black p-2 text-2xl text-black rounded-md mr-3 outline outline-2 outline-offset-0 outline-green-600 max-[620px]:mr-0"
           value={itemInput}
           onChange={e => setItemInput(e.target.value)}
         />
@@ -49,13 +49,12 @@ const Page = () => {
 
       <p>{list.length} itens na lista</p>
 
-      <ul className="flex flex-col w-full max-w-lg p-3 list-disc pl-5">
+      <ul className="flex flex-col w-full h-auto p-3 list-disc pl-5">
         {list.map(item => (
-          <li key={item.id} className="p-3 flex items-center justify-between bg-blue-500 mb-2 rounded-lg">
-            <div className="flex items-center justify-between">
-              <input onClick={() => toggleItem(item.id)} type="checkbox" checked={item.checked} className="w-6 h-6 mr-3" />
-              {item.label}
-            </div> <button onClick={() => deleteItem(item.id)} className="bg-red-600 rounded-md p-2">deletar</button></li>
+          <li key={item.id} className="w-full h-full p-3 flex items-center  justify-between bg-cyan-700 mb-2 rounded-lg">
+              <input onClick={() => toggleItem(item.id)} type="checkbox" checked={item.checked} className="w-10 h-full mr-3" />
+              <p className="w-full">{item.label}</p>
+            <button onClick={() => deleteItem(item.id)} className="bg-red-800 rounded-md p-2 z-10">deletar</button></li>
         ))}
       </ul>
     </div>
