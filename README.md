@@ -1,3 +1,9 @@
+# TODOLIST (REACT)
+
+## ![Captura de tela 2023-12-07 115602](https://github.com/EliaxZen/todo-list-with-react/assets/132005740/4fa6527d-4119-4f88-af5a-f7a3e41c7fb4)
+
+## Um projetinho simples de uma lista de tarefas, utilizei react e o uso do useState
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
