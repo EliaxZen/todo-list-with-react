@@ -53,7 +53,7 @@ const Page = () => {
         {list.map(item => (
           <li key={item.id} className="w-full h-full p-3 flex items-center  justify-between bg-cyan-700 mb-2 rounded-lg">
               <input onClick={() => toggleItem(item.id)} type="checkbox" checked={item.checked} className="w-10 h-full mr-3" />
-              <p className="w-full">{item.label}</p>
+              <p className="w-full break-words">{item.label}</p>
             <button onClick={() => deleteItem(item.id)} className="bg-red-800 rounded-md p-2 z-10">deletar</button></li>
         ))}
       </ul>
